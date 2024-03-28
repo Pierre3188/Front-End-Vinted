@@ -1,0 +1,29 @@
+.main_pic > img {
+  height: 350px;
+  width: 230px;
+  object-fit: cover;
+}
+.offer {
+  width: 300px;
+  display: flex;
+}
+
+.globaloffer {
+  margin-top: 20px;
+  width: 300px;
+  display: inline-block;
+}
+.prd_name {
+  width: 200px;
+  height: 50px;
+
+  overflow: hidden;
+}
+.dispo {
+  display: flex;
+}
+.offer > img {
+  height: 30px;
+  width: 40px;
+  padding-right: 10px;
+}

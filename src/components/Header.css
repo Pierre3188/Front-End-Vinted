@@ -1,0 +1,100 @@
+.logo > img {
+  height: 50px;
+  width: 110px;
+  margin-right: 40px;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  border: 1px solid black;
+  align-items: center;
+  justify-content: center;
+}
+.container-header {
+  margin: 0 auto;
+  width: 1280px;
+}
+.searchbar {
+  margin: auto 0;
+  width: 100%;
+  max-width: 600px;
+  background-color: #f5f6f7;
+  display: inline-block;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.searchbar input {
+  background: transparent;
+
+  border: 0;
+
+  padding: 24px 20px;
+  font-size: 30px;
+  width: 500px;
+  height: 1px;
+  color: blue;
+}
+
+::placeholder {
+  color: #e7e8e9;
+}
+
+.inscr {
+  border: 1px solid #2cb1ba;
+  border-radius: 10px;
+  background-color: white;
+  color: #2cb1ba;
+  font-family: "Maison Neue";
+  font-size: 12px;
+  line-height: 10px;
+  height: 30px;
+  width: 115px;
+  margin-left: 60px;
+  cursor: pointer;
+}
+.connec {
+  border: 1px solid #2cb1ba;
+  border-radius: 10px;
+  background-color: white;
+  color: #2cb1ba;
+  font-family: "Maison Neue";
+  font-size: 12px;
+  line-height: 10px;
+  height: 30px;
+  width: 115px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.sell {
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: #2cb1ba;
+  color: white;
+  font-family: "Maison Neue";
+  font-size: 12px;
+  line-height: 10px;
+  height: 30px;
+  width: 115px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+.price-sort {
+  font-family: "Maison Neue";
+  font-size: 12px;
+  line-height: 10px;
+  display: flex;
+  align-items: center;
+  border-top: 10px;
+  cursor: pointer;
+}
+
+.price-between {
+  font-family: "Maison Neue";
+  font-size: 12px;
+  line-height: 10px;
+}
+.price-sort > span {
+  margin-right: 10px;
+}
