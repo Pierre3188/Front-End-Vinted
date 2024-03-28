@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <div>
-      <h1>Je suis la page details</h1>
+      <h1>Je suis la page caca</h1>
       <Link to="/">
         <div>
           <section>

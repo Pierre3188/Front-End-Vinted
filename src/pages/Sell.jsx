@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Details = () => {
+const Sell = () => {
   return (
     <div>
       <h1>Je suis la page caca</h1>
@@ -15,4 +15,4 @@ const Details = () => {
   );
 };
 
-export default Details;
+export default Sell;

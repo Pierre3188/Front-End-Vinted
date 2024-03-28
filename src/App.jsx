@@ -8,7 +8,7 @@ import Details from "./pages/Details";
 import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-
+import sell from "./pages/Sell";
 // Import components
 import Header from "./components/Header";
 
@@ -28,6 +28,7 @@ function App() {
         <Route path="/details" element={<Details />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/sell" element={<Sell />} />
         {/* La route offer/:id necessite l'envoie d'un params */}
         <Route path="/offer/:id" element={<Offer />} />
         <Route path="*" element={<p>Error 404</p>} />

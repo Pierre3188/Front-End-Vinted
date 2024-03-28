@@ -39,7 +39,9 @@ const Header = () => {
             <Link to={`/login`}>
               <button className="connec">Se connecter</button>
             </Link>
-            <button className="sell">Vends tes articles</button>
+            <Link to={`/sell`}>
+              <button className="sell">Vends tes articles</button>
+            </Link>
           </div>
         </nav>
       </div>
