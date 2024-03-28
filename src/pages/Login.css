@@ -1,4 +1,4 @@
-.container-Signup {
+.container-Login {
   margin: 0 auto;
   max-width: 280px;
   margin-top: 50px;
@@ -64,13 +64,13 @@ span {
   margin-bottom: 50px;
 }
 
-.alreadyaccount {
+.noaccount {
   font-family: "Maison Neue Book";
   font-size: 12px;
   line-height: 10px;
   color: #2cb1ba;
   cursor: pointer;
-
+  width: 300px;
   text-decoration: none;
 }
 .submit1 {

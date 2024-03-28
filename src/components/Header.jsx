@@ -16,7 +16,7 @@ const Header = () => {
           <form>
             <input
               type="text"
-              class="search-input"
+              className="search-input"
               placeholder="Recherche des articles"
             ></input>
           </form>

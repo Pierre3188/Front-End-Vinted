@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./Signup.css";
+import axios from "axios";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -19,29 +20,22 @@ const Signup = () => {
     if (password.length > 8) {
       setShowError(false);
 
-      useEffect(() => {
-        const fetchData = async () => {
-          const response = await axios.post(
-            "https://lereacteur-vinted-api.herokuapp.com/user/signup",
-            {
-              email: email,
-              username: username,
-              password: password,
-              newsletter: true,
-            },
-            {
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
-            }
-          );
-          setData(response.data);
-          setIsLoading(false);
-          console.log(response.data.email);
-        };
+      const fetchData = async () => {
+        const response = await axios.post(
+          "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+          {
+            email: email,
+            username: username,
+            password: password,
+            newsletter: newsletter,
+          }
+        );
+        setData(response.data);
+        setIsLoading(false);
+        console.log(response.data.token);
+      };
 
-        fetchData();
-      }, []);
+      fetchData();
     } else {
       // Je fais apparaître mon message d'erreur
       setShowError(true);
@@ -51,6 +45,10 @@ const Signup = () => {
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
+  function handleChange(e) {
+    setNewsletter(e.target.checked);
+  }
+
   return (
     <div className="container-Signup">
       <div className="styleh2">
@@ -96,7 +94,17 @@ const Signup = () => {
         {/* <button type="submit">Envoyer</button> */}
         {/* Cliquer sur ce bouton déclenche le onSubmit du formulaire */}
         {/* <button type="submit">Valider</button> */}
-        <h3> S'inscrire à notre newsletter</h3>
+        <div className="checkbox">
+          <div>
+            <input
+              className="submit1"
+              type="checkbox"
+              value="value"
+              onChange={handleChange}
+            />
+            <h3> S'inscrire à notre newsletter</h3>
+          </div>
+        </div>
         <span>
           En m'inscrivant je confirme avoir lu et accepté les Termes &
           Conditions et Politique de Confidentialité de Vinted. Je confirme
