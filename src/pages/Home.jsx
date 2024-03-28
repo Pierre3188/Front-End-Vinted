@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./Home.css";
-import Offer from "./Offer";
 
 const Home = ({ str }) => {
   const [data, setData] = useState({});
