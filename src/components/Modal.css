@@ -1,0 +1,18 @@
+.modal-root {
+  color: red;
+  /* Pour que la modal prenne tout l'écran : */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  background-color: white;
+  width: 700px;
+  height: 400px;
+}
+header,
+footer {
+  color: green;
+}

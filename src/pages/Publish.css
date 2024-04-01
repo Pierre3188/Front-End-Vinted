@@ -1,0 +1,206 @@
+h1 {
+  font-family: "Maison Neue";
+  font-size: 22px;
+  font-weight: lighter;
+}
+h2 {
+  font-family: "Maison Neue";
+  font-size: 16px;
+  font-weight: lighter;
+  background-color: white;
+}
+
+h3 {
+  background-color: white;
+  margin-left: 25px;
+}
+.seconddiv {
+  background-color: white;
+  height: 150px;
+}
+
+.thirddiv {
+  background-color: white;
+  height: 250px;
+}
+
+.divtitle {
+  display: flex;
+  margin-top: 30px;
+  height: 30px;
+  align-items: center;
+  border-bottom: 1px solid grey;
+  padding-left: 10px;
+  background-color: white;
+}
+
+.title {
+  margin-left: 150px;
+  border: 0;
+  border-bottom: 1px solid grey;
+  cursor: pointer;
+  width: 200px;
+  background-color: white;
+}
+.descart {
+  display: flex;
+  margin-top: 30px;
+  height: 30px;
+  align-items: center;
+  position: relative;
+  background-color: white;
+  margin-left: 10px;
+}
+
+.desc {
+  margin-left: 70px;
+  border: 0;
+  border-bottom: 1px solid grey;
+  cursor: pointer;
+  width: 250px;
+  flex-wrap: wrap;
+  height: 20px;
+  position: absolute;
+  left: 110px;
+  top: 5px;
+  padding-bottom: 50px;
+  background-color: white;
+}
+.divbrand {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  margin-top: 80px;
+  border-bottom: 1px solid grey;
+  background-color: white;
+  padding-left: 10px;
+}
+.brand {
+  margin-left: 130px;
+  border: 0;
+  border-bottom: 1px solid grey;
+  background-color: white;
+  cursor: pointer;
+  width: 200px;
+}
+.divsize {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  margin-top: 20px;
+  border-bottom: 1px solid grey;
+  background-color: white;
+  padding-left: 10px;
+}
+
+.size {
+  margin-left: 145px;
+  border: 0;
+  border-bottom: 1px solid grey;
+  background-color: white;
+  cursor: pointer;
+  width: 200px;
+}
+.divcolor {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  margin-top: 20px;
+  border-bottom: 1px solid grey;
+  background-color: white;
+  padding-left: 10px;
+}
+
+.color {
+  margin-left: 130px;
+  border: 0;
+  border-bottom: 1px solid grey;
+  background-color: white;
+  cursor: pointer;
+  width: 200px;
+}
+.divstate {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  margin-top: 20px;
+  border-bottom: 1px solid grey;
+  background-color: white;
+  padding-left: 10px;
+}
+
+.state {
+  margin-left: 155px;
+  border: 0;
+  border-bottom: 1px solid grey;
+  background-color: white;
+  cursor: pointer;
+  width: 200px;
+}
+.divplace {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  margin-top: 20px;
+  border-bottom: 1px solid grey;
+  background-color: white;
+  padding-left: 10px;
+}
+
+.place {
+  margin-left: 152px;
+  border: 0;
+  border-bottom: 1px solid grey;
+  background-color: white;
+  cursor: pointer;
+  width: 200px;
+}
+.divprice {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  margin-top: 20px;
+  border-bottom: 1px solid grey;
+  background-color: white;
+  padding-left: 10px;
+}
+
+.price {
+  margin-left: 155px;
+  border: 0;
+  border-bottom: 1px solid grey;
+  cursor: pointer;
+  width: 200px;
+  background-color: white;
+}
+
+.checkbox {
+  margin-top: 10px;
+  padding-left: 188px;
+  background-color: white;
+}
+
+.divbutton > div {
+  display: flex;
+  justify-content: flex-end;
+}
+.divcheckbox {
+  background-color: white;
+  position: relative;
+  border: 1px solid black;
+}
+.checkbox {
+  accent-color: white;
+  position: absolute;
+
+  top: 5px;
+  left: 1px;
+}
+.submit {
+  width: 80px;
+  margin-top: 10px;
+}
+.fourthdiv {
+  background-color: white;
+  height: 80px;
+}

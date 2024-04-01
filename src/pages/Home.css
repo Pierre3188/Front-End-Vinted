@@ -23,7 +23,9 @@
   display: flex;
 }
 .offer > img {
-  height: 30px;
-  width: 40px;
+  height: 25px;
+  width: 25px;
+
   padding-right: 10px;
+  border-radius: 50px;
 }

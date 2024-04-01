@@ -60,7 +60,6 @@ span {
   font-size: 12px;
   line-height: 10px;
   color: #999999;
-
   margin-bottom: 50px;
 }
 
@@ -73,13 +72,40 @@ span {
 
   text-decoration: none;
 }
-.submit1 {
-  height: 20px;
-  width: 20px;
-  margin-right: 20px;
-}
-.checkbox > div {
+.divsubmit {
+  position: relative;
   display: flex;
-  height: 30px;
+  justify-content: center;
   align-items: center;
+}
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 180px;
+  top: 400px;
+}
+.divaccount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.legalcd {
+  margin-top: 80px;
+}
+.submitbutton {
+  width: 105px;
+  height: 45px;
+  border-radius: 5px;
+  background-color: #2cb1ba;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.textavatar > p {
+  font-family: "Maison Neue Book";
+  color: #666666;
 }

@@ -3,27 +3,34 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./Home.css";
 
-const Home = ({ str }) => {
+const Home = ({ search, minval, maxval, active }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        "https://lereacteur-vinted-api.herokuapp.com/offers"
-      );
-      setData(response.data);
-      setIsLoading(false);
+      try {
+        console.log(active + " " + search + " " + minval + " " + maxval);
+        const response = await axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${active}&title=${search}&priceMin=${minval}&priceMax=${maxval}`
+        );
+
+        setData(response.data);
+        console.log(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.message.data);
+      }
     };
 
     fetchData();
-  }, []);
+  }, [search, minval, maxval, active]);
 
   return isLoading ? (
     <p>Loading ...</p>
   ) : (
     <>
       {data.offers.map((offer, index) => {
-        console.log(offer);
         return (
           <Link key={offer._id} to={`/offer/${offer._id}`}>
             <article className="globaloffer">

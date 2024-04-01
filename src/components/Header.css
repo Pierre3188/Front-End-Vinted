@@ -13,28 +13,26 @@
 }
 .container-header {
   margin: 0 auto;
-  width: 1280px;
+  width: 1200px;
 }
 .searchbar {
   margin: auto 0;
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   background-color: #f5f6f7;
   display: inline-block;
   align-items: center;
   border-radius: 10px;
 }
 
-.searchbar input {
+.search-input {
   background: transparent;
-
   border: 0;
-
   padding: 24px 20px;
   font-size: 30px;
-  width: 500px;
+  width: 400px;
   height: 1px;
-  color: blue;
+  color: black;
 }
 
 ::placeholder {
@@ -85,16 +83,41 @@
   font-size: 12px;
   line-height: 10px;
   display: flex;
-
-  border-top: 10px;
   cursor: pointer;
+  height: 30px;
 }
-
+.price-sort-txt {
+  padding-top: 10px;
+}
 .price-between {
   font-family: "Maison Neue";
   font-size: 12px;
   line-height: 10px;
+  margin-top: 10px;
 }
 .price-sort > span {
   margin-right: 10px;
+  margin-left: 10px;
+}
+.deconn {
+  border: 1px solid #2cb1ba;
+  border-radius: 10px;
+  background-color: white;
+  color: #2cb1ba;
+  font-family: "Maison Neue";
+  font-size: 12px;
+  line-height: 10px;
+  height: 30px;
+  width: 115px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.priceMin {
+  width: 50px;
+  cursor: pointer;
+}
+.priceMax {
+  width: 50px;
+
+  cursor: pointer;
 }

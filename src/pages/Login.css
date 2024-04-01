@@ -29,18 +29,9 @@
   border-width: 0px;
   border: none;
   font-family: "Maison Neue";
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   border-bottom: solid 1px #fcced3;
   font-size: 20px;
-}
-.submit {
-  width: 275px;
-  height: 45px;
-  border-radius: 5px;
-  background-color: #2cb1ba;
-  color: white;
-  border: none;
-  cursor: pointer;
 }
 
 h2 {
@@ -61,7 +52,7 @@ span {
   line-height: 10px;
   color: #999999;
 
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .noaccount {
@@ -72,14 +63,25 @@ span {
   cursor: pointer;
   width: 300px;
   text-decoration: none;
+  margin-top: 30px;
 }
 .submit1 {
   height: 20px;
   width: 20px;
   margin-right: 20px;
 }
-.checkbox > div {
+.submitdiv {
   display: flex;
+  justify-content: center;
   height: 30px;
-  align-items: center;
+}
+.buttonsubmit {
+  width: 105px;
+  height: 45px;
+  border-radius: 5px;
+  background-color: #2cb1ba;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-left: 90px;
 }

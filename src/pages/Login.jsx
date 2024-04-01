@@ -1,30 +1,37 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./Login.css";
 import axios from "axios";
-import Cookies from "js-cookie";
-const Login = () => {
+
+const Login = ({ publishMem, handleToken, setPublishMem }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [data, setData] = useState("");
+
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     // Empêche le rafraichissement par défaut du navigateur lors de la soumission
     event.preventDefault();
     console.log(email, password);
-    const fetchData = async () => {
-      const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/login",
-        {
-          email: email,
-          password: password,
-        }
-      );
-      setData(response.data);
-      console.log(response.data.token);
-      Cookies.set("token", response.data.token, { expires: 15 });
-    };
+    try {
+      const fetchData = async () => {
+        const response = await axios.post(
+          "https://lereacteur-vinted-api.herokuapp.com/user/login",
+          {
+            email: email,
+            password: password,
+          }
+        );
+        setData(response.data);
+        handleToken(response.data.token);
+        navigate("/");
+      };
 
-    fetchData();
+      fetchData();
+    } catch (error) {
+      console.log(error.response.data.message);
+    }
   };
 
   const handleEmailChange = (event) => {
@@ -63,14 +70,27 @@ const Login = () => {
           }}
         />
 
-        <div>
-          <input className="submit" type="submit" value="Se connecter" />
-        </div>
-        <Link to={`/Signup`}>
-          <p className="noaccount">
-            Pas encore de compte? Qu'est ce que tu fous? Inscris-toi !
-          </p>
-        </Link>
+        {publishMem ? (
+          <input
+            className="buttonsubmit"
+            type="submit"
+            value="Se connecter"
+            onClick={() => {
+              console.log(publishMem);
+              setPublishMem(false);
+              navigate("/publish");
+            }}
+          />
+        ) : (
+          <Link to={`/`}>
+            <input
+              className="buttonsubmit"
+              type="submit"
+              value="Se connecter"
+            />
+            <p>Pas encore de compte? Qu'est ce que tu fous? Inscris-toi !</p>
+          </Link>
+        )}
       </form>
     </div>
   );

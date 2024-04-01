@@ -1,44 +1,57 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./Signup.css";
 import axios from "axios";
+import React, { useCallback } from "react";
+import Dropzone from "react-dropzone";
 
-const Signup = () => {
+const Signup = ({ handleToken }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
   const [showError, setShowError] = useState(false);
   const [data, setData] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate = useNavigate();
+
   // Fonction qui est déclenchée lors de la soumission du formulaire
   const handleSubmit = (event) => {
     // Empêche le rafraichissement par défaut du navigateur lors de la soumission
     event.preventDefault();
+    try {
+      // Si le mot de passe rentré par l'utilisateur fait plus de 8 caractères de long, je fais un truc
+      if (password.length > 8) {
+        setShowError(false);
 
-    // Si le mot de passe rentré par l'utilisateur fait plus de 8 caractères de long, je fais un truc
-    if (password.length > 8) {
-      setShowError(false);
+        const fetchData = async () => {
+          const response = await axios.post(
+            "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+            {
+              email: email,
+              username: username,
+              password: password,
+              newsletter: newsletter,
+            }
+          );
+          setData(response.data);
 
-      const fetchData = async () => {
-        const response = await axios.post(
-          "https://lereacteur-vinted-api.herokuapp.com/user/signup",
-          {
-            email: email,
-            username: username,
-            password: password,
-            newsletter: newsletter,
-          }
-        );
-        setData(response.data);
-        setIsLoading(false);
-        console.log(response.data.token);
-      };
+          handleToken(response.data.token);
+          navigate("/");
+        };
 
-      fetchData();
-    } else {
-      // Je fais apparaître mon message d'erreur
-      setShowError(true);
+        fetchData();
+      } else {
+        // Je fais apparaître mon message d'erreur
+        setShowError(true);
+      }
+    } catch (error) {
+      console.log(error.response.data);
+      if (error.reponse.status === 409) {
+        setErrorMessage(true);
+      }
     }
   };
 
@@ -91,36 +104,54 @@ const Signup = () => {
             setPassword(event.target.value);
           }}
         />
+
+        <Dropzone onDrop={(acceptedFiles) => console.log(acceptedFiles)}>
+          {({ getRootProps, getInputProps }) => (
+            <section>
+              <div {...getRootProps()}>
+                <input {...getInputProps()} />
+                <div className="textavatar">
+                  <p>Sélectionner un avatar</p>
+                </div>
+              </div>
+            </section>
+          )}
+        </Dropzone>
         {/* <button type="submit">Envoyer</button> */}
         {/* Cliquer sur ce bouton déclenche le onSubmit du formulaire */}
         {/* <button type="submit">Valider</button> */}
         <div className="checkbox">
-          <div>
-            <input
-              className="submit1"
-              type="checkbox"
-              value="value"
-              onChange={handleChange}
-            />
-            <h3> S'inscrire à notre newsletter</h3>
-          </div>
+          <input
+            type="checkbox"
+            checked={newsletter}
+            value="value"
+            onChange={handleChange}
+          />
+          <h3> S'inscrire à notre newsletter</h3>
         </div>
-        <span>
+        <span className="legalcd">
           En m'inscrivant je confirme avoir lu et accepté les Termes &
           Conditions et Politique de Confidentialité de Vinted. Je confirme
           avoir au moins 18 ans.
         </span>
 
-        <div>
-          <input className="submit" type="submit" value="S'inscrire" />
+        <div className="divsubmit">
+          <input className="submitbutton" type="submit" value="S'inscrire" />
         </div>
-        <Link to={`/Login`}>
-          <p className="alreadyaccount">Tu as déjà un compte? Connecte-toi !</p>
-        </Link>
+        <div className="divaccount">
+          <Link to={`/Login`}>
+            <p className="alreadyaccount">
+              Tu as déjà un compte? Connecte-toi !
+            </p>
+          </Link>
+        </div>
         {showError === true && (
           <p style={{ color: "red" }}>
             Votre mot de passe doit faire plus de 8 caractères
           </p>
+        )}
+        {errorMessage === true && (
+          <p style={{ color: "red" }}>This email has already an account</p>
         )}
       </form>
     </div>
