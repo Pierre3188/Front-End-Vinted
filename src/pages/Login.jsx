@@ -6,6 +6,7 @@ import axios from "axios";
 const Login = ({ publishMem, handleToken, setPublishMem }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
   const [data, setData] = useState("");
 
   const navigate = useNavigate();
@@ -13,7 +14,6 @@ const Login = ({ publishMem, handleToken, setPublishMem }) => {
   const handleSubmit = (event) => {
     // Empêche le rafraichissement par défaut du navigateur lors de la soumission
     event.preventDefault();
-    console.log(email, password);
     try {
       const fetchData = async () => {
         const response = await axios.post(
@@ -24,6 +24,7 @@ const Login = ({ publishMem, handleToken, setPublishMem }) => {
           }
         );
         setData(response.data);
+        console.log(response.data.token);
         handleToken(response.data.token);
         navigate("/");
       };
@@ -31,6 +32,11 @@ const Login = ({ publishMem, handleToken, setPublishMem }) => {
       fetchData();
     } catch (error) {
       console.log(error.response.data.message);
+      console.log("status", response.status);
+
+      if (response.status === 401) {
+        setError(true);
+      }
     }
   };
 
@@ -76,21 +82,22 @@ const Login = ({ publishMem, handleToken, setPublishMem }) => {
             type="submit"
             value="Se connecter"
             onClick={() => {
-              console.log(publishMem);
               setPublishMem(false);
               navigate("/publish");
             }}
           />
         ) : (
-          <Link to={`/`}>
+          //  <Link to={`/`}>
+          <div>
             <input
               className="buttonsubmit"
               type="submit"
               value="Se connecter"
             />
             <p>Pas encore de compte? Qu'est ce que tu fous? Inscris-toi !</p>
-          </Link>
+          </div> // </Link>
         )}
+        {error && <p> Mauvais mot de passe ou compte inexistant</p>}
       </form>
     </div>
   );

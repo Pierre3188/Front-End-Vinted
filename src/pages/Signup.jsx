@@ -12,6 +12,7 @@ const Signup = ({ handleToken }) => {
   const [newsletter, setNewsletter] = useState(false);
   const [showError, setShowError] = useState(false);
   const [data, setData] = useState({});
+  const [avatar, setAvatar] = useState("");
 
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -37,7 +38,7 @@ const Signup = ({ handleToken }) => {
             }
           );
           setData(response.data);
-
+          console.log(response.data.token);
           handleToken(response.data.token);
           navigate("/");
         };
@@ -104,12 +105,13 @@ const Signup = ({ handleToken }) => {
             setPassword(event.target.value);
           }}
         />
-
-        <Dropzone onDrop={(acceptedFiles) => console.log(acceptedFiles)}>
+        {avatar && <img src={URL.createObjectURL(avatar)} alt="produit" />}
+        <Dropzone onDrop={(acceptedFiles) => console.log(acceptedFiles.path)}>
           {({ getRootProps, getInputProps }) => (
             <section>
               <div {...getRootProps()}>
                 <input {...getInputProps()} />
+
                 <div className="textavatar">
                   <p>Sélectionner un avatar</p>
                 </div>
@@ -117,18 +119,21 @@ const Signup = ({ handleToken }) => {
             </section>
           )}
         </Dropzone>
+
         {/* <button type="submit">Envoyer</button> */}
         {/* Cliquer sur ce bouton déclenche le onSubmit du formulaire */}
         {/* <button type="submit">Valider</button> */}
-        <div className="checkbox">
-          <input
-            type="checkbox"
-            checked={newsletter}
-            value="value"
-            onChange={handleChange}
-          />
-          <h3> S'inscrire à notre newsletter</h3>
+        <div className="divcheckbox">
+          <div className="checkbox">
+            <input
+              type="checkbox"
+              checked={newsletter}
+              value="value"
+              onChange={handleChange}
+            />
+          </div>
         </div>
+        <h3> S'inscrire à notre newsletter</h3>
         <span className="legalcd">
           En m'inscrivant je confirme avoir lu et accepté les Termes &
           Conditions et Politique de Confidentialité de Vinted. Je confirme

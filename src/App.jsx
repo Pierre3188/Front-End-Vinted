@@ -10,6 +10,7 @@ import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Publish from "./pages/Publish";
+import Checkout from "./pages/Checkout";
 
 // Import components
 import Header from "./components/Header";
@@ -29,7 +30,8 @@ function App() {
       Cookies.set("token", token, { expires: 15 });
       setToken(token);
     } else {
-      Cookies.remove(token);
+      console.log("test");
+      Cookies.remove("token");
       setToken(null);
     }
   };
@@ -46,7 +48,6 @@ function App() {
         active={active}
         publishMem={publishMem}
         setVisible={setVisible}
-        setToken={setToken}
         setSearch={setSearch}
         handleToken={handleToken}
         setMinVal={setMinVal}
@@ -80,20 +81,25 @@ function App() {
           }
         />
         <Route path="/details" element={<Details />} />
-        <Route path="/signup" element={<Signup handleToken={handleToken} />} />
+        <Route
+          path="/signup"
+          element={<Signup token={token} handleToken={handleToken} />}
+        />
         <Route
           path="/login"
           element={
             <Login
+              token={token}
               publishMem={publishMem}
               handleToken={handleToken}
               setPublishMem={setPublishMem}
             />
           }
         />
-        <Route path="/Publish" element={<Publish />} />
+        <Route path="/Publish" element={<Publish token={setToken} />} />
         {/* La route offer/:id necessite l'envoie d'un params */}
-        <Route path="/offer/:id" element={<Offer />} />
+        <Route path="/offer/:id" element={<Offer token={setToken} />} />
+        <Route path="/checkout" element={<Checkout token={setToken} />} />
         <Route path="*" element={<p>Error 404</p>} />
       </Routes>
     </Router>

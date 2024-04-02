@@ -73,27 +73,28 @@ span {
   text-decoration: none;
 }
 .divsubmit {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.checkbox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 180px;
-  top: 400px;
-}
-.divaccount {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.checkbox > input {
+  position: absolute;
+  left: 0px;
+  top: 25px;
+}
+
+h3 {
+  position: absolute;
+  left: 370px;
+  top: 418px;
+}
+.divcheckbox > div {
+  display: flex;
+}
+
 .legalcd {
-  margin-top: 80px;
+  margin-top: 100px;
 }
 .submitbutton {
   width: 105px;
@@ -108,4 +109,8 @@ span {
 .textavatar > p {
   font-family: "Maison Neue Book";
   color: #666666;
+}
+.alreadyaccount {
+  display: flex;
+  justify-content: center;
 }

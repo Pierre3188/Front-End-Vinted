@@ -4,6 +4,7 @@ import { ToggleSlider } from "react-toggle-slider";
 import { Link, useNavigate } from "react-router-dom";
 import "../pages/Login.jsx";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 const Header = ({
   token,

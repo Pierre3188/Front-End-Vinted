@@ -204,3 +204,7 @@ h3 {
   background-color: white;
   height: 80px;
 }
+.divpicture > img {
+  height: 100px;
+  width: 100px;
+}

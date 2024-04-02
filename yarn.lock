@@ -530,6 +530,30 @@
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.13.1.tgz#d1b221daca9afca1885b91a311c6f4a04b0deeb5"
   integrity sha512-YY1Exxo2viZ/O2dMHuwQvimJ0SqvL+OAWQLLY6rvXavgQKjhQUzn7nc1Dd29gjB5Fqi00nrBWctJBOyfVMIVxw==
 
+"@stripe/react-stripe-js@1.7.2":
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-1.7.2.tgz#87cc5464378fb28bc7390702415cf70f13a46bcd"
+  integrity sha512-IAVg2nPUPoSwI//XDRCO7D8mGeK4+N3Xg63fYZHmlfEWAuFVcuaqJKTT67uzIdKYZhHZ/NMdZw/ttz+GOjP/rQ==
+  dependencies:
+    prop-types "^15.7.2"
+
+"@stripe/react-stripe-js@^2.6.2":
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-2.6.2.tgz#0b0c81d0c4174b44fdd1b5c7fa58754dd4f86bca"
+  integrity sha512-FSjNg4v7BiCfojvx25PQ8DugOa09cGk1t816R/DLI/lT+1bgRAYpMvoPirLT4ZQ3ev/0VDtPdWNaabPsLDTOMA==
+  dependencies:
+    prop-types "^15.7.2"
+
+"@stripe/stripe-js@1.29.0":
+  version "1.29.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-1.29.0.tgz#f41e46aee711d1eabcb3bbc77376016a250ec962"
+  integrity sha512-OsUxk0VLlum8E2d6onlEdKuQcvLMs7qTrOXCnl/BGV3fAm65qr6h3e1IZ5AX4lgUlPRrzRcddSOA5DvkKKYLvg==
+
+"@stripe/stripe-js@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-3.2.0.tgz#b31a1e823610f49856ae2cd2341a98e6d2d0e883"
+  integrity sha512-dNu+FLX0UrxM0RVgr4YVc5dJdmC6Wx5Grgi53E28K+n+/aIqVrWkonKtAEPcdkabQz6i/1IpNd93s+UUVSOkcg==
+
 "@types/babel__core@^7.20.5":
   version "7.20.5"
   resolved "https://registry.npmjs.org/@types/babel__core/-/babel__core-7.20.5.tgz"
@@ -613,6 +637,11 @@ acorn@^8.9.0:
   version "8.11.3"
   resolved "https://registry.npmjs.org/acorn/-/acorn-8.11.3.tgz"
   integrity sha512-Y9rRfJG5jcKOE0CLisYbojUjIrIEE7AGMzA/Sm4BslANhbS+cDMpgBdcPT91oJ7OuJ9hYJBx59RjbhxVnrF8Xg==
+
+add@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/add/-/add-2.0.6.tgz#248f0a9f6e5a528ef2295dbeec30532130ae2235"
+  integrity sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q==
 
 ajv@^6.12.4:
   version "6.12.6"
@@ -2366,7 +2395,7 @@ prelude-ls@^1.2.1:
   resolved "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prop-types@^15.8.1:
+prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -2436,6 +2465,14 @@ react-router@6.22.3:
   integrity sha512-dr2eb3Mj5zK2YISHK++foM9w4eBnO23eKnZEDs7c880P6oKbrjz/Svg9+nxqtHQK+oMW4OtjZca0RqPglXxguQ==
   dependencies:
     "@remix-run/router" "1.15.3"
+
+react-stripe-js@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/react-stripe-js/-/react-stripe-js-1.1.5.tgz#c8cc6ad6f645224f9999150995e1acf22efd01f7"
+  integrity sha512-4lIucgf/FZj6Uxvf/TH+QQa/Qi3FXigwN/QY6H7naPyoEfw9LOuTzdgPAmm7aeSXj8nZJXVoigiGzzFZchXjew==
+  dependencies:
+    "@stripe/react-stripe-js" "1.7.2"
+    "@stripe/stripe-js" "1.29.0"
 
 react-toggle-slider@^0.4.0:
   version "0.4.0"
@@ -3034,6 +3071,11 @@ yaml@^2.3.4:
   version "2.4.1"
   resolved "https://registry.npmjs.org/yaml/-/yaml-2.4.1.tgz"
   integrity sha512-pIXzoImaqmfOrL7teGUBt/T7ZDnyeGBWyXQBvOVhLkWLN37GXv8NMLK406UY6dS51JfcQHsmcW5cJ441bHg6Lg==
+
+yarn@^1.22.22:
+  version "1.22.22"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.22.22.tgz#ac34549e6aa8e7ead463a7407e1c7390f61a6610"
+  integrity sha512-prL3kGtyG7o9Z9Sv8IPfBNrWTDmXB4Qbes8A9rEzt6wkJV8mUvoirjU0Mp3GGAU06Y0XQyA3/2/RQFVuK7MTfg==
 
 yocto-queue@^0.1.0:
   version "0.1.0"

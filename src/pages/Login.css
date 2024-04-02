@@ -85,3 +85,8 @@ span {
   cursor: pointer;
   margin-left: 90px;
 }
+
+p {
+  font-size: 12px;
+  line-height: 10px;
+}

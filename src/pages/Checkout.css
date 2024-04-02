@@ -1,0 +1,39 @@
+.container {
+  margin: 0 auto;
+  max-width: 500px;
+  border: 1px solid black;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+}
+
+.cmdprice {
+  display: flex;
+  justify-content: space-between;
+}
+.buyprice {
+  display: flex;
+  justify-content: space-between;
+}
+.transportprice {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+}
+.total > p {
+  font-weight: bold;
+}
+.arttitle {
+  font-weight: bold;
+  color: black;
+}
+.artprice {
+  font-weight: bold;
+  color: black;
+}

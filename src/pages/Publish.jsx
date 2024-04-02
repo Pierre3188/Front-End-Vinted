@@ -4,10 +4,10 @@ import axios from "axios";
 import { useDropzone } from "react-dropzone";
 import Cookies from "js-cookie";
 
-const Publish = () => {
+const Publish = (token) => {
   const [username, setUsername] = useState("");
   // State qui contient mon image sélectionnée
-  const [picture, setPicture] = useState([]);
+  const [picture, setPicture] = useState();
   // State qui contient l'url fourni par cloudinary
   const [pictureFromCloudinary, setPictureFromCloudinary] = useState();
   const [title, setTitle] = useState("");
@@ -68,7 +68,7 @@ const Publish = () => {
   function handleChange(e) {
     setChange(e.target.checked);
   }
-  return (
+  return token ? (
     <>
       <div className="photo-bloc">
         <h1>Vends ton article</h1>
@@ -77,16 +77,21 @@ const Publish = () => {
           style={{ display: "flex", flexDirection: "column" }}
           onSubmit={handleSubmit}
         >
+          {picture && (
+            <div className="divpicture">
+              <img
+                className="divpicture"
+                src={URL.createObjectURL(picture)}
+                alt="produit"
+              />
+            </div>
+          )}
           <input
             multiple // Pour sélectionner plusieurs fichiers
             type="file"
             onChange={(event) => {
-              let i = 0;
-              while (event.target.files[i]) {
-                setPicture(event.target.files[i]);
-                console.log("test", event.target.files[i]);
-                i = i + 1;
-              }
+              setPicture(event.target.files[0]);
+              console.log("test", event.target.files[0]);
             }}
           />
         </form>
@@ -237,6 +242,8 @@ const Publish = () => {
         </div>
       </form>
     </>
+  ) : (
+    navigate("/publish")
   );
 };
 
