@@ -90,7 +90,6 @@ const CheckoutForm = ({ title, price }) => {
   return paymentIsDone ? (
     <div className="thanks">
       <p>Merci pour votre achat</p>
-      <UpdateArticle title={title} amount={price}></UpdateArticle>
     </div>
   ) : (
     <form onSubmit={handleSubmit}>
