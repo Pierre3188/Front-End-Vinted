@@ -18,7 +18,7 @@ import Cookies from "js-cookie";
 
 function App() {
   //Déclarations
-  const [token, setToken] = useState(Cookies.get("token") || null);
+  const [token, setToken] = useState(Cookies.get("vinted-token") || null);
   const [visible, setVisible] = useState(false);
   const [search, setSearch] = useState("");
   const [minval, setMinVal] = useState(0);
@@ -27,11 +27,10 @@ function App() {
   const [publishMem, setPublishMem] = useState(false);
   const handleToken = (token) => {
     if (token) {
-      Cookies.set("token", token, { expires: 15 });
+      Cookies.set("vinted-token", token, { expires: 15 });
       setToken(token);
     } else {
-      console.log("test");
-      Cookies.remove("token");
+      Cookies.remove("vinted-token");
       setToken(null);
     }
   };
@@ -96,7 +95,7 @@ function App() {
             />
           }
         />
-        <Route path="/Publish" element={<Publish token={setToken} />} />
+        <Route path="/Publish" element={<Publish token={token} />} />
         {/* La route offer/:id necessite l'envoie d'un params */}
         <Route path="/offer/:id" element={<Offer token={setToken} />} />
         <Route path="/checkout" element={<Checkout token={setToken} />} />

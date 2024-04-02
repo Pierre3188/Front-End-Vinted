@@ -31,42 +31,48 @@ function Checkout(token) {
   total = Number(price.toFixed(0)) + 0.4 + 0.8;
   // Le composant Elements doit contenir toute la logique de paiement
   // On lui donne la preuve qu'on s'est connecté à notre compte et les options de paiement
-  return token ? (
-    <div>
-      <div className="container">
-        <h2> Résumé de la commande</h2>
-        <div className="cmdprice">
-          <p> Commande </p>
-          <p>{price}€</p>
+  console.log(token);
+  return (
+    <>
+      {token ? (
+        <div>
+          <div className="container">
+            <h2> Résumé de la commande</h2>
+            <div className="cmdprice">
+              <p> Commande </p>
+              <p>{price}€</p>
+            </div>
+            <div className="buyprice">
+              <p> Frais protection acheteurs </p>
+              <p>0.40€</p>
+            </div>
+            <div className="transportprice">
+              <p> Frais de port</p>
+              <p>0.80€</p>
+            </div>
+            <div className="total">
+              <p> Total</p>
+              <p>{total}€</p>
+            </div>
+            <div className="blabla">
+              <p>
+                {" "}
+                Il ne vous reste plus qu'une étape pour vous offrir{" "}
+                <span className="arttitle">{title}</span>. Vous allez payer{" "}
+                <span className="artprice">{total}€</span> (frais de protection
+                et de frais port inclus).
+              </p>
+            </div>
+          </div>
+          <Elements stripe={stripePromise} options={options}>
+            <CheckoutForm title={title} price={price} />
+          </Elements>
         </div>
-        <div className="buyprice">
-          <p> Frais protection acheteurs </p>
-          <p>0.40€</p>
-        </div>
-        <div className="transportprice">
-          <p> Frais de port</p>
-          <p>0.80€</p>
-        </div>
-        <div className="total">
-          <p> Total</p>
-          <p>{total}€</p>
-        </div>
-        <div className="blabla">
-          <p>
-            {" "}
-            Il ne vous reste plus qu'une étape pour vous offrir{" "}
-            <span className="arttitle">{title}</span>. Vous allez payer{" "}
-            <span className="artprice">{total}€</span> (frais de protection et
-            de frais port inclus).
-          </p>
-        </div>
-      </div>
-      <Elements stripe={stripePromise} options={options}>
-        <CheckoutForm title={title} price={price} />
-      </Elements>
-    </div>
-  ) : (
-    navigate("/")
+      ) : (
+        navigate("/")
+      )}
+      ;
+    </>
   );
 }
 

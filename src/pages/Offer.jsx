@@ -50,31 +50,25 @@ const Offer = (token) => {
                   <span>{offer.owner.account.username}</span>
                 </div>
               </div>
-              {token ? (
-                <button
-                  onClick={() =>
+
+              <button
+                onClick={() => {
+                  if (token) {
                     navigate("/checkout", {
                       state: {
                         title: offer.product_name,
                         price: offer.product_price,
                       },
-                    })
+                    });
+                  } else {
+                    navigate("/login");
                   }
-                  className="green"
-                >
-                  Acheter
-                </button>
-              ) : (
-                <button
-                  onClick={() => navigate("/login", {})}
-                  className="green"
-                >
-                  Acheter
-                </button>
-              )}
+                }}
+              >
+                Acheter
+              </button>
             </div>
           </div>
-          ;
         </div>
       )}
     </>

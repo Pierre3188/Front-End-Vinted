@@ -11,25 +11,26 @@ const Login = ({ publishMem, handleToken, setPublishMem }) => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     // Empêche le rafraichissement par défaut du navigateur lors de la soumission
     event.preventDefault();
     try {
-      const fetchData = async () => {
-        const response = await axios.post(
-          "https://lereacteur-vinted-api.herokuapp.com/user/login",
-          {
-            email: email,
-            password: password,
-          }
-        );
-        setData(response.data);
-        console.log(response.data.token);
-        handleToken(response.data.token);
+      const response = await axios.post(
+        "https://lereacteur-vinted-api.herokuapp.com/user/login",
+        {
+          email: email,
+          password: password,
+        }
+      );
+      setData(response.data);
+      console.log(response.data.token);
+      handleToken(response.data.token);
+      if (publishMem === true) {
+        setPublishMem(false);
+        navigate("/publish");
+      } else {
         navigate("/");
-      };
-
-      fetchData();
+      }
     } catch (error) {
       console.log(error.response.data.message);
       console.log("status", response.status);
@@ -75,28 +76,9 @@ const Login = ({ publishMem, handleToken, setPublishMem }) => {
             setPassword(event.target.value);
           }}
         />
+        <input className="buttonsubmit" type="submit" value="Se connecter" />
+        <p>Pas encore de compte? Qu'est ce que tu fous? Inscris-toi !</p>
 
-        {publishMem ? (
-          <input
-            className="buttonsubmit"
-            type="submit"
-            value="Se connecter"
-            onClick={() => {
-              setPublishMem(false);
-              navigate("/publish");
-            }}
-          />
-        ) : (
-          //  <Link to={`/`}>
-          <div>
-            <input
-              className="buttonsubmit"
-              type="submit"
-              value="Se connecter"
-            />
-            <p>Pas encore de compte? Qu'est ce que tu fous? Inscris-toi !</p>
-          </div> // </Link>
-        )}
         {error && <p> Mauvais mot de passe ou compte inexistant</p>}
       </form>
     </div>

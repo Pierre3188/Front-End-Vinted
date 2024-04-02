@@ -82,10 +82,12 @@ const Header = ({
         <nav>
           <div className="left-nav">
             {token ? (
-              <button className="deconn" onClick={() => handleToken(null)}>
-                {" "}
-                Se déconnecter
-              </button>
+              <Link to="/">
+                <button className="deconn" onClick={() => handleToken(null)}>
+                  {" "}
+                  Se déconnecter
+                </button>
+              </Link>
             ) : (
               <>
                 <Link to={`/signup`}>
@@ -103,26 +105,20 @@ const Header = ({
                 </Link>
               </>
             )}
-            {token ? (
-              <Link to={`/Publish`}>
-                <button className="sell">Vends tes articles</button>
-              </Link>
-            ) : (
-              <>
-                <Link to={`/login`}>
-                  <button
-                    className="sell"
-                    onClick={() => {
-                      setPublishMem(true); // on inverse la valeur de `visible` à chaque click
 
-                      navigate("/login");
-                    }}
-                  >
-                    Vends tes articles
-                  </button>
-                </Link>
-              </>
-            )}
+            <button
+              className="sell"
+              onClick={() => {
+                if (token) {
+                  navigate("/publish");
+                } else {
+                  setPublishMem(true); // on inverse la valeur de `visible` à chaque click
+                  navigate("/login");
+                }
+              }}
+            >
+              Vends tes articles
+            </button>
           </div>
         </nav>
       </div>
